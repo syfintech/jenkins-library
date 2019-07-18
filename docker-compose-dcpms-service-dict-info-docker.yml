@@ -1,12 +1,22 @@
 version: '3'
 services:
   app:
-    image: 172.21.21.62:8000/dcpms-service-dict-info:docker
+    image: dcpms-service-dict-info:docker
     container_name: dcpms-service-dict-info
     restart: always
+    extra_hosts:
+      - "redis.syfintech.cn:172.21.21.82"
+      - "rabbitmq.syfintech.cn:172.21.21.82"
+      - "eureka.instance.cn:172.21.21.82"
+      - "eureka.instance.cn2:172.21.21.82"
+      - "eureka.instance.cn3:172.21.21.82"
+      - "admin.url.syfintech.cn:172.21.21.82"
+      - "jdbc.mysql.dcpms.cn:172.21.21.56"
+      - "tracker-server:172.21.21.12"
     volumes:
       - ./bootstrap.yml:/app/bootstrap.yml
       - ./logback.xml:/app/logback.xml
+      - ./application.properties:/app/dcpms-service-dict-info/application.properties
       - ./logs:/app/logs
       - /data/resource:/data/resource
       - /data/temp:/data/temp
