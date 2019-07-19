@@ -1,8 +1,8 @@
 version: '3'
 services:
   app:
-    image: $STACKNAME:test
-    container_name: $STACKNAME
+    image: #STACKNAME#:test
+    container_name: #STACKNAME#
     restart: always
     extra_hosts:
       - "app-host:192.168.2.65"
@@ -15,7 +15,7 @@ services:
       - "jdbc.mysql.dcpms.cn:172.21.21.67"
       - "tracker-server:172.21.21.12"
     volumes:
-      - ./logs:/root/dcpms/logs/$STACKNAME
+      - ./logs:/root/dcpms/logs/#STACKNAME#
     environment:
       - JAVA_OPTS=-Xmx256m -Xms256m -Dfile.encoding=UTF-8
       - SPRING_PROFILE=test
