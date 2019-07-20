@@ -16,6 +16,6 @@ services:
     volumes:
       - ./logs:/root/dcpms/logs/dcpms-service-dict-info
     environment:
-      - JAVA_OPTS=-Xmx256m -Xms256m -Dfile.encoding=UTF-8
+      - JAVA_OPTS=-Xmx300m -Xms256m -Dfile.encoding=UTF-8
       - SPRING_PROFILE=test
     network_mode: host
