@@ -12,9 +12,10 @@ services:
       - "eureka.instance.cn3:172.21.21.82"
       - "admin.url.syfintech.cn:172.21.21.82"
       - "jdbc.mysql.dcpms.cn:172.21.21.56"
+      - "mysql.syfintech.cn:172.21.21.56"
       - "tracker-server:172.21.21.12"
     volumes:
-      - ./logs:/root/dcat/logs/#STACKNAME#
+      - ./logs:/app/logs/#STACKNAME#
     environment:
       - JAVA_OPTS=-Xmx256m -Xms256m -Dfile.encoding=UTF-8
       - SPRING_PROFILE=dev
