@@ -1,0 +1,23 @@
+version: '3'
+services:
+  app:
+    image: #STACKNAME#:release
+    container_name: #STACKNAME#
+    restart: always
+    extra_hosts:
+      - "app-host:172.18.205.6"
+      - "redis.syfintech.cn:172.18.205.7"
+      - "rabbitmq.syfintech.cn:172.18.205.7"
+      - "eureka.instance.cn:172.18.205.7"
+      - "eureka.instance.cn2:172.18.205.7"
+      - "eureka.instance.cn3:172.18.205.7"
+      - "admin.url.syfintech.cn:172.18.205.7"
+      - "jdbc.mysql.dcpms.cn:172.18.205.9"
+      - "tracker-server:172.18.205.9"
+    volumes:
+      - ./logs:/root/dcat/logs/#STACKNAME#
+    environment:
+      - JAVA_OPTS=-Xmx256m -Xms256m -Dfile.encoding=UTF-8
+      - SPRING_PROFILE=dev
+    network_mode: host
+
